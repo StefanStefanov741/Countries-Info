@@ -44,6 +44,7 @@ public class CountryInfo extends DBActivity implements OnMapReadyCallback{
     protected TextView capitalTV;
     protected TextView continentsTV;
     protected TextView areaTV;
+    protected TextView populationTV;
     protected TextView languageTV;
     protected TextView currencyTV;
     protected TextView currsymbolTV;
@@ -85,6 +86,7 @@ public class CountryInfo extends DBActivity implements OnMapReadyCallback{
         capitalTV = findViewById(R.id.capitalTV);
         continentsTV = findViewById(R.id.continentsTV);
         areaTV = findViewById(R.id.areaTV);
+        populationTV = findViewById(R.id.populationTV);
         languageTV = findViewById(R.id.languageTV);
         currencyTV = findViewById(R.id.currencyTV);
         currsymbolTV = findViewById(R.id.currsymbolTV);
@@ -100,6 +102,7 @@ public class CountryInfo extends DBActivity implements OnMapReadyCallback{
         codeTV.setText(country.countryCode);
         capitalTV.setText(country.capital);
         areaTV.setText(country.area+" km²");
+        populationTV.setText(country.population);
         currencyTV.setText(country.currencyName);
         currsymbolTV.setText(country.currencySymbol);
         domainTV.setText(country.domain);
@@ -205,11 +208,12 @@ public class CountryInfo extends DBActivity implements OnMapReadyCallback{
             } catch (Exception e) {
                 Toast.makeText(getApplicationContext(), "Something went wrong when deleting!", Toast.LENGTH_SHORT).show();
             }
+
             //save the new data of the country
-            String insertsql = "INSERT INTO COUNTRIES (shortname,officialname,countryCode,area,phonestart,domain,capital,currencyName,currencySymbol," +
+            String insertsql = "INSERT INTO COUNTRIES (shortname,officialname,countryCode,area,population,phonestart,domain,capital,currencyName,currencySymbol," +
                     "carsDriveOnThe,continents,timeZones,borders,languages,independent,unMember)" +
                     "VALUES('"+country.shortname+"','"+country.officialname+"','"+country.countryCode+"','"+country.area+
-                    "','"+country.phonestart+"','"+country.domain+"','"+country.capital+"','"+country.currencyName+"','"+country.currencySymbol+
+                    "','"+country.population+"','"+country.phonestart+"','"+country.domain+"','"+country.capital+"','"+country.currencyName+"','"+country.currencySymbol+
                     "','"+country.carsDriveOnThe+"','"+ArrayToSQLArray(country.continents)+"','"+ArrayToSQLArray(country.timeZones)+
                     "','"+ArrayToSQLArray(country.borders)+"','"+ArrayToSQLArray(country.languages)+"',"+BooleanToBit(country.independent)+","+BooleanToBit(country.unMember)+")";
             try {

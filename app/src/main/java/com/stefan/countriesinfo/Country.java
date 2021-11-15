@@ -18,6 +18,7 @@ public class Country implements Serializable {
     public String[] borders;
     public String[] languages;
     public String area;
+    public String population;
     public String phonestart;
     public String domain;
     public String capital;
@@ -34,6 +35,7 @@ public class Country implements Serializable {
         officialname="";
         countryCode="";
         area="";
+        population="";
         phonestart="";
         domain="";
         capital="";

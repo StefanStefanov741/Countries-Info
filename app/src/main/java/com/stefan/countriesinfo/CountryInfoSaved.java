@@ -34,6 +34,7 @@ public class CountryInfoSaved extends DBActivity {
     protected TextView capitalTV;
     protected TextView continentsTV;
     protected TextView areaTV;
+    protected TextView populationTV;
     protected TextView languageTV;
     protected TextView currencyTV;
     protected TextView currsymbolTV;
@@ -105,6 +106,7 @@ public class CountryInfoSaved extends DBActivity {
             AlertDialog dialog = builder.create();
             dialog.show();
         });
+
         //scrollview elements
         countryName.setText(country.shortname);
         officialnameTV = findViewById(R.id.officialnameTV);
@@ -112,6 +114,7 @@ public class CountryInfoSaved extends DBActivity {
         capitalTV = findViewById(R.id.capitalTV);
         continentsTV = findViewById(R.id.continentsTV);
         areaTV = findViewById(R.id.areaTV);
+        populationTV = findViewById(R.id.populationTV);
         languageTV = findViewById(R.id.languageTV);
         currencyTV = findViewById(R.id.currencyTV);
         currsymbolTV = findViewById(R.id.currsymbolTV);
@@ -127,6 +130,7 @@ public class CountryInfoSaved extends DBActivity {
         codeTV.setText(country.countryCode);
         capitalTV.setText(country.capital);
         areaTV.setText(country.area+" km²");
+        populationTV.setText(country.population);
         currencyTV.setText(country.currencyName);
         currsymbolTV.setText(country.currencySymbol);
         domainTV.setText(country.domain);

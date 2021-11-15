@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
 public class DBActivity extends AppCompatActivity {
     protected interface OnSelectSuccess{
         public void SelectedCountry(
-                String shortname,String officialname,String countryCode,String area,String phonestart,String domain,String capital,String currencyName,
+                String shortname,String officialname,String countryCode,String area,String population,String phonestart,String domain,String capital,String currencyName,
                 String currencySymbol,String carsDriveOnThe,String continents,String timeZones,String borders,String languages,
                 int independent,int unMember
         );
@@ -38,6 +38,7 @@ public class DBActivity extends AppCompatActivity {
             @SuppressLint("Range") String officialname=cursor.getString(cursor.getColumnIndex("officialname"));
             @SuppressLint("Range") String countryCode=cursor.getString(cursor.getColumnIndex("countryCode"));
             @SuppressLint("Range") String area=cursor.getString(cursor.getColumnIndex("area"));
+            @SuppressLint("Range") String population=cursor.getString(cursor.getColumnIndex("population"));
             @SuppressLint("Range") String phonestart=cursor.getString(cursor.getColumnIndex("phonestart"));
             @SuppressLint("Range") String domain=cursor.getString(cursor.getColumnIndex("domain"));
             @SuppressLint("Range") String capital=cursor.getString(cursor.getColumnIndex("capital"));
@@ -50,7 +51,7 @@ public class DBActivity extends AppCompatActivity {
             @SuppressLint("Range") String languages=cursor.getString(cursor.getColumnIndex("languages"));
             @SuppressLint("Range") int independent=cursor.getInt(cursor.getColumnIndex("independent"));
             @SuppressLint("Range") int unMember=cursor.getInt(cursor.getColumnIndex("unMember"));
-            success.SelectedCountry(shortname,officialname,countryCode,area,phonestart,domain,capital,currencyName,currencySymbol,carsDriveOnThe,continents,timeZones,borders,languages,independent,unMember);
+            success.SelectedCountry(shortname,officialname,countryCode,area,population,phonestart,domain,capital,currencyName,currencySymbol,carsDriveOnThe,continents,timeZones,borders,languages,independent,unMember);
         }
         db.close();
     }
@@ -77,6 +78,7 @@ public class DBActivity extends AppCompatActivity {
                         "  borders TEXT[] NOT null," +
                         "  languages TEXT[] NOT null," +
                         "  area TEXT not null," +
+                        "  population TEXT not null," +
                         "  phonestart TEXT not null," +
                         "  domain TEXT not null," +
                         "  capital TEXT not null," +

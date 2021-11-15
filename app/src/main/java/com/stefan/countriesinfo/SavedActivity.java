@@ -40,12 +40,16 @@ public class SavedActivity extends DBActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_saved);
-
+        try {
+            initDB();
+        } catch (Exception e) {
+            Toast.makeText(getApplicationContext(), "Error?", Toast.LENGTH_SHORT).show();
+        }
         try {
             SelectSQL(
                     "SELECT * FROM COUNTRIES",
                     null,
-                    (shortname,officialname,countryCode,area,phonestart,domain,capital,currencyName,currencySymbol,carsDriveOnThe,continents,timeZones,borders,languages,independent,unMember)->{
+                    (shortname,officialname,countryCode,area,population,phonestart,domain,capital,currencyName,currencySymbol,carsDriveOnThe,continents,timeZones,borders,languages,independent,unMember)->{
                         Country c = new Country();
                         c.shortname=shortname;
                         c.officialname=officialname;
@@ -54,6 +58,7 @@ public class SavedActivity extends DBActivity {
                         c.domain=domain;
                         c.capital=capital;
                         c.area=area;
+                        c.population = population;
                         c.currencyName=currencyName;
                         c.currencySymbol=currencySymbol;
                         c.carsDriveOnThe=carsDriveOnThe;
@@ -293,7 +298,7 @@ public class SavedActivity extends DBActivity {
             SelectSQL(
                     "SELECT * FROM COUNTRIES",
                     null,
-                    (shortname,officialname,countryCode,area,phonestart,domain,capital,currencyName,currencySymbol,carsDriveOnThe,continents,timeZones,borders,languages,independent,unMember)->{
+                    (shortname,officialname,countryCode,area,population,phonestart,domain,capital,currencyName,currencySymbol,carsDriveOnThe,continents,timeZones,borders,languages,independent,unMember)->{
                         Country c = new Country();
                         c.shortname=shortname;
                         c.officialname=officialname;
@@ -302,6 +307,7 @@ public class SavedActivity extends DBActivity {
                         c.domain=domain;
                         c.capital=capital;
                         c.area=area;
+                        c.population = population;
                         c.currencyName=currencyName;
                         c.currencySymbol=currencySymbol;
                         c.carsDriveOnThe=carsDriveOnThe;

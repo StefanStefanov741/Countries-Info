@@ -116,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
                             country.shortname = json.getJSONObject("name").getString("common");
                             country.officialname = json.getJSONObject("name").getString("official");
                             country.area = json.getString("area");
+                            country.population = json.getString("population");
                             country.countryCode = json.getString("cca2");
                             if(json.has("tld")){
                                 country.domain = json.getJSONArray("tld").getString(0);
@@ -222,6 +223,7 @@ public class MainActivity extends AppCompatActivity {
                             country.shortname = json.getJSONObject("name").getString("common");
                             country.officialname = json.getJSONObject("name").getString("official");
                             country.area = json.getString("area");
+                            country.population = json.getString("population");
                             country.countryCode = json.getString("cca2");
                             country.phonestart = json.getJSONObject("idd").getString("root") + json.getJSONObject("idd").getJSONArray("suffixes").getString(0);
                             country.domain = json.getJSONArray("tld").getString(0);
@@ -301,6 +303,7 @@ public class MainActivity extends AppCompatActivity {
                             country.shortname = json.getJSONObject("name").getString("common");
                             country.officialname = json.getJSONObject("name").getString("official");
                             country.area = json.getString("area");
+                            country.population = json.getString("population");
                             country.countryCode = json.getString("cca2");
                             country.phonestart = json.getJSONObject("idd").getString("root") + json.getJSONObject("idd").getJSONArray("suffixes").getString(0);
                             country.domain = json.getJSONArray("tld").getString(0);
